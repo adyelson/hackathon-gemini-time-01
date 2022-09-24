@@ -72,6 +72,7 @@ function DetalhesPage() {
           <img
             className="imgCategory"
             src={imagem}
+            alt={descricao}
           />
           <div className="detalhes-restaurante">
           <span className="restaurante-title">{nome}</span>

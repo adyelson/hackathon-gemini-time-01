@@ -16,3 +16,12 @@ img {
     height: auto;
     width: 100px;
 }
+
+.restaurante-title, .item-titulo{
+    font-weight: bold;
+}
+
+.restaurante-nota {
+    color: #ED6E27;
+}
+
