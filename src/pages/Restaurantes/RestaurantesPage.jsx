@@ -1,12 +1,12 @@
 import { Container, Typography, CircularProgress } from "@material-ui/core";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { getRestaurantes } from "../../services/restaurantes.service";
 import "./style.css";
 
 function RestaurantesPage() {
   const { id } = useParams();
-
+  const navigate = useNavigate();
   const [nomeCategoria, setNomeCategoria] = useState([]);
   const [restaurantesBaratinho, setRestaurantesBaratinho] = useState();
   const [restaurantesNoPreco, setRestaurantesNoPreco] = useState([]);
@@ -38,26 +38,34 @@ function RestaurantesPage() {
           Baratinho <span>(</span>$ <span>$ $ $ $)</span>
         </Typography>
       </div>
-      {restaurantesBaratinho?.map(restaurante => (
-        <div key={restaurante.id} className="card-restaurante">
-          <img src={restaurante.imagem}
-            alt={restaurante.nome}/>
-          <div className="card-texto-restaurante">
-            <span>{restaurante.nome}</span>
-            <span>{restaurante.distancia + " km"}</span>
-            <span>{"★ " + restaurante.nota}</span>
-            <span>{restaurante.tempo_medio}</span>
-            <span> - R$ {restaurante.valor_entrega}</span>
+        {restaurantesBaratinho?.map(restaurante => (
+          <div 
+            key={restaurante.id} 
+            className="card-restaurante"
+            onClick={() => navigate(`/detalhes/${restaurante.id}`)}
+          >
+            <img src={restaurante.imagem}
+              alt={restaurante.nome}/>
+            <div className="card-texto-restaurante">
+              <span>{restaurante.nome}</span>
+              <span>{restaurante.distancia + " km"}</span>
+              <span>{"★ " + restaurante.nota}</span>
+              <span>{restaurante.tempo_medio}</span>
+              <span>{(restaurante.valor_entrega === 0 ) ? "Grátis" : ("R$" + restaurante.valor_entrega) }</span>
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
       <div className="sub-header">
         <Typography variant="body1" color="primary">
           No Preço <span>(</span>$ $ $<span> $ $)</span>
         </Typography>
       </div>
       {restaurantesNoPreco?.map(restaurante => (
-        <div key={restaurante.id} className="card-restaurante">
+        <div 
+          key={restaurante.id} 
+          className="card-restaurante"
+          onClick={() => navigate(`/detalhes/${restaurante.id}`)}
+          >
           <img src={restaurante.imagem}
             alt={restaurante.nome}/>
           <div className="card-texto-restaurante">
@@ -65,7 +73,7 @@ function RestaurantesPage() {
             <span>{restaurante.distancia + " km"}</span>
             <span>{"★ " + restaurante.nota}</span>
             <span>{restaurante.tempo_medio}</span>
-            <span> - R$ {restaurante.valor_entrega}</span>
+            <span>{(restaurante.valor_entrega === 0 ) ? "Grátis" : ("R$" + restaurante.valor_entrega) }</span>
           </div>
         </div>
       ))}
@@ -75,7 +83,11 @@ function RestaurantesPage() {
         </Typography>
       </div>
       {restaurantesCaro?.map(restaurante => (
-        <div key={restaurante.id} className="card-restaurante">
+        <div 
+          key={restaurante.id} 
+          className="card-restaurante"
+          onClick={() => navigate(`/detalhes/${restaurante.id}`)}
+        >
           <img src={restaurante.imagem}
             alt={restaurante.nome}/>
           <div className="card-texto-restaurante">
@@ -83,7 +95,7 @@ function RestaurantesPage() {
             <span>{restaurante.distancia + " km"}</span>
             <span>{restaurante.nota}</span>
             <span>{restaurante.tempo_medio}</span>
-            <span> - R$ {restaurante.valor_entrega}</span>
+            <span>{(restaurante.valor_entrega === 0 ) ? "Grátis" : ("R$" + restaurante.valor_entrega) }</span>
           </div>
         </div>
       ))}
