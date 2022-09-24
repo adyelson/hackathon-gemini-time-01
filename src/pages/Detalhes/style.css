@@ -1,0 +1,95 @@
+.detalhes{
+    font-family: 'Ubuntu';
+}
+.detalhes-restaurante {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+	margin: 45px;
+    margin-left: 20px;
+    font-size: 15px;
+}
+
+.imgCategory {
+	width: 100px;
+    margin: 45px;
+    margin-right: 0;	
+}
+.restaurante-title, .item-titulo{
+    font-weight: bold;
+}
+
+.containerCategorias{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+	margin: 45px;
+    font-size: 15px;
+}
+
+.valor{
+    display: flex;
+    justify-content: right;
+}
+
+.container-detalhes {
+    display: flex;
+    flex-direction: row;
+}
+
+.restaurante-nota {
+    color: #ED6E27;
+}
+
+.cardapio-categoria {
+font-family: 'Ubuntu';
+font-style: normal;
+font-weight: 700;
+font-size: 40px;
+line-height: 18px;
+margin: 45px;
+
+color: #000000;
+}
+
+.card-itens{
+    margin: 15px;
+    display: flex;
+}
+
+.imagem-itens{
+    width: 100px;
+    height: 100px;
+}
+
+.card-conent{
+    display: flex;
+    flex-direction: column;
+}
+
+.itens-valor{
+    justify-content: flex-end;
+    align-items: flex-end;
+    text-align: right;
+}
+
+.restaurante-descricao{
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 550;
+    font-size: 18px;
+    line-height: 14px;
+    margin-left: 45px;
+    margin-bottom: 45px;
+}
+
+.restaurante-endereco{
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 14px;
+    margin-left: 45px;
+    margin-bottom: 45px;
+}
