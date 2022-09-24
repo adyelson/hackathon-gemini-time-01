@@ -8,6 +8,7 @@ import {
 import { getDetalhesRestaurante } from "../../services/detalhes.service";
 import "./style.css";
 
+
 function DetalhesPage() {
   const { id } = useParams();
   const [cardapio, setCardapio] = useState();
@@ -41,6 +42,10 @@ function DetalhesPage() {
   }, []);
 
   const valorEntregaFormatado = formatter.format(valor_entrega)
+  const [busca, setBusca] = useState("");
+  function handleInput (event) {
+     setBusca (event.target.value);
+  }
 
   function ListaCardapio() {
     return (
@@ -66,7 +71,9 @@ function DetalhesPage() {
     );
   }
 
-  return (
+
+
+  return (    
     <div className="detalhes">
           <div className="container-detalhes">
           <img
@@ -82,7 +89,21 @@ function DetalhesPage() {
       </div>
       <div className="restaurante-descricao">{descricao}</div>
       <p className="restaurante-endereco">{endereco}</p>
-      <ListaCardapio />
+      
+
+        
+        
+            <input 
+            value={busca}
+            className="form-input"
+            onChange={() => {
+                    handleInput()
+                }}
+                
+                placeholder="Buscar no Cardápio" />
+                  
+            
+            <ListaCardapio />
     </div>
   );
 }
