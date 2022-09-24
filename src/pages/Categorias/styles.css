@@ -8,11 +8,11 @@
 	background-color: lightgray;
 	border-bottom-left-radius: 15px;
 	border-bottom-right-radius: 15px;
-	
+	width: 100%;
 }
 
 .categorias .imgCategory {
-	max-width: 350px;
+	width: 100%;
 	border-top-left-radius: 15px;
 	border-top-right-radius: 15px;
 }
@@ -21,6 +21,6 @@
 	display: flex;
 	align-items: center;
 	flex-direction: column;
-	margin: 10px 0 5px;
+	margin: 10px 5px 5px;
 	cursor: pointer;
 }
