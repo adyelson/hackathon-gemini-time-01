@@ -1,14 +1,13 @@
-
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { Card, CardMedia, Typography, CardContent } from "@material-ui/core";
+import { Card, CardMedia,  Grid, Typography, CardContent } from "@material-ui/core";
 
 // import { useNavigate } from "react-router-dom";
 import { getDetalhesRestaurante } from "../../services/detalhes.service";
 import "./style.css";
 
 function DetalhesPage() {
-  const  {id} = useParams();
+  const { id } = useParams();
   const [cardapio, setCardapio] = useState();
   const [descricao, setDescricao] = useState();
   const [distancia, setDistancia] = useState();
@@ -17,8 +16,8 @@ function DetalhesPage() {
   const [nome, setNome] = useState();
   const [nota, setNota] = useState();
   const [tempo_medio, setTempoMedio] = useState();
-  const [valor_entrega, setValorEntrega] = useState(); 
-  
+  const [valor_entrega, setValorEntrega] = useState();
+
   useEffect(() => {
     getDetalhesRestaurante(id).then((response) => {
       setCardapio(response.cardapio);
@@ -59,8 +58,43 @@ function DetalhesPage() {
   }
 
   return(
-    <div>
-      <ListaCardapio />
+    <div className="detalhes">
+      <div className="detalhes-restaurante">
+
+          <div >
+            <img className="imgCategory" src="https://i.imgur.com/iJgQdLB.jpg"></img>
+          </div>
+      <div>
+       <p className="restaurante-title" >NOME REstaurante</p> 
+      <p> 2,4km</p>
+      <p>*4,7</p>
+      <p>40-50min</p>
+      <div>
+        {descricao}
+      </div>
+      </div>
+    </div>
+ {cardapio?.map(cardapio => (
+        <div key={cardapio.id}>
+          {cardapio.categoria}
+        </div>
+      ))}
+
+
+        <div className="containerCategorias">
+          <div >
+            <img className="imgCategory" src="https://i.imgur.com/w1UjttV.jpg"></img>
+          </div>
+          <div className="item-detalhes">
+            <p className="item-titulo">Batata</p>
+            <p>Batata frita e sequinha.</p>
+            <p className="valor"> R$10,00</p>
+          </div>
+
+        </div>
+        
+      
+        
     </div>
   )
 }
