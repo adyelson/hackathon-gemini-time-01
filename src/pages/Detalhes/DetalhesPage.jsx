@@ -34,18 +34,43 @@ function DetalhesPage() {
   }, []);
 
   return(
-    <div>
+    <div className="detalhes">
+      <div className="detalhes-restaurante">
+
+          <div >
+            <img className="imgCategory" src="https://i.imgur.com/iJgQdLB.jpg"></img>
+          </div>
       <div>
-        Categoria
+       <p className="restaurante-title" >NOME REstaurante</p> 
+      <p> 2,4km</p>
+      <p>*4,7</p>
+      <p>40-50min</p>
+      <div>
+        {descricao}
       </div>
-      {cardapio?.map(cardapio => (
+      </div>
+    </div>
+ {cardapio?.map(cardapio => (
         <div key={cardapio.id}>
           {cardapio.categoria}
         </div>
       ))}
-      <div>
-        {descricao}
-      </div>
+
+
+        <div className="containerCategorias">
+          <div >
+            <img className="imgCategory" src="https://i.imgur.com/w1UjttV.jpg"></img>
+          </div>
+          <div className="item-detalhes">
+            <p className="item-titulo">Batata</p>
+            <p>Batata frita e sequinha.</p>
+            <p className="valor"> R$10,00</p>
+          </div>
+
+        </div>
+        
+      
+        
     </div>
   )
 }
