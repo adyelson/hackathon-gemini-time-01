@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { Typography } from "@material-ui/core";
+import {  Grid, Typography } from "@material-ui/core";
 
 // import { useNavigate } from "react-router-dom";
 import { getDetalhesRestaurante } from "../../services/detalhes.service";
@@ -27,6 +27,11 @@ function DetalhesPage() {
           {cardapio.categoria}
         </div>
       ))}
+
+
+
+
+      
     </div>
   )
 }
