@@ -93,3 +93,8 @@ color: #000000;
     margin-left: 45px;
     margin-bottom: 45px;
 }
+
+.form-input{
+    margin-bottom: 30px;
+    width: fill;
+}

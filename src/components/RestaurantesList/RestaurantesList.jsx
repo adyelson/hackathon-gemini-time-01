@@ -6,7 +6,7 @@ import "./styles.css";
 function RestaurantesList(props) {
     const navigate = useNavigate();
     const restaurantes = props.restaurantes;
-
+    
     return (
         <>
             <div className="sub-header">
@@ -25,11 +25,10 @@ function RestaurantesList(props) {
                         alt={restaurante.nome}
                     />
                     <div className="card-texto-restaurante">
-                        <span>{restaurante.nome}</span>
-                        <span>{restaurante.distancia + " km"}</span>
-                        <span>{"★ " + restaurante.nota}</span>
-                        <span>{restaurante.tempo_medio}</span>
-                        <span>{(restaurante.valor_entrega === 0 ) ? "Grátis" : ("R$" + restaurante.valor_entrega) }</span>
+                        <span className="restaurante-title">{restaurante.nome}</span>
+                        <span className="restaurante-distancia">{restaurante.distancia + " km"}</span>
+                        <span className="restaurante-nota">{"★ " + restaurante.nota}</span>
+                        <span className="restaurante-tempo-frete">{restaurante.tempo_medio} + {(restaurante.valor_entrega === 0 ) ? "Grátis" : ("R$" + restaurante.valor_entrega) }</span>
                     </div>
                 </div>
             ))}
