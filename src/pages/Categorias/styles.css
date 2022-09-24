@@ -5,6 +5,12 @@
 .categorias .textNames {
 	text-align: center;
 	font-size: 14px;
+<<<<<<< HEAD
+=======
+	background-color: lightgray;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+>>>>>>> 83f14c78aac36b87b69136faea79829cf6938489
 	
 }
 
@@ -12,8 +18,11 @@
 	max-width: 350px;
 	border-top-left-radius: 15px;
 	border-top-right-radius: 15px;
+<<<<<<< HEAD
 	margin-bottom: 4px;
 	
+=======
+>>>>>>> 83f14c78aac36b87b69136faea79829cf6938489
 }
 
 .categorias .containerCategorias {
