@@ -1,20 +1,3 @@
 .restaurantes .sub-header span span {
   color: #DEDDDD;
 }
-.card-restaurante{
-  display: flex;
-  margin: 20px;
-}
-.card-texto-restaurante {
- display: flex;
- flex-direction: column;
- background-color: #d9d9d94f;
- 
- width: 100%;
- padding: 10px;
-}
-
-img {
-  height: auto;
-  width: 100px;
-}
