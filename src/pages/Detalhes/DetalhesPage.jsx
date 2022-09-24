@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { Typography } from "@material-ui/core";
+import { Card, CardMedia, Typography, CardContent } from "@material-ui/core";
 
 // import { useNavigate } from "react-router-dom";
 import { getDetalhesRestaurante } from "../../services/detalhes.service";
@@ -33,19 +33,34 @@ function DetalhesPage() {
     });
   }, []);
 
+  function ListaCardapio(){
+    return (
+      <div className="div-principal">
+        {cardapio?.map((cardapio, i) => (
+          <div key={i} className="cardapio-categoria">
+            {cardapio.categoria}
+            {cardapio.itens?.map((itens,i) => (
+            <Card key={i} className="card-itens">
+              <img src={itens.imagem} alt={itens.descricao}/>
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="div">
+                    {itens.nome}
+                  </Typography>
+                  <Typography variant="body2">
+                    {itens.descricao}
+                  </Typography>
+                </CardContent>
+            </Card>
+            ))}
+          </div>
+        ))}
+      </div>
+    )
+  }
+
   return(
     <div>
-      <div>
-        Categoria
-      </div>
-      {cardapio?.map(cardapio => (
-        <div key={cardapio.id}>
-          {cardapio.categoria}
-        </div>
-      ))}
-      <div>
-        {descricao}
-      </div>
+      <ListaCardapio />
     </div>
   )
 }
