@@ -95,7 +95,7 @@ function DetalhesPage() {
         
         
             <input 
-            value={busca}
+            type= "text"
             className="form-input"
             onChange={() => {
                     handleInput()
