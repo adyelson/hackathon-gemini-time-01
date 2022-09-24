@@ -19,6 +19,12 @@ function DetalhesPage() {
   const [nota, setNota] = useState();
   const [tempo_medio, setTempoMedio] = useState();
   const [valor_entrega, setValorEntrega] = useState();
+  var formatter = new Intl.NumberFormat("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  });
 
   useEffect(() => {
     getDetalhesRestaurante(id).then((response) => {
@@ -34,20 +40,23 @@ function DetalhesPage() {
     });
   }, []);
 
+  const valorEntregaFormatado = formatter.format(valor_entrega)
+
   function ListaCardapio() {
     return (
       <div className="div-principal">
         {cardapio?.map((cardapio, i) => (
-          <div key={i} className="cardapio-categoria">
-            {cardapio.categoria}
+          <div key={i} className="cardapio-lista">
+            <span className="cardapio-categoria">{cardapio.categoria}</span>
             {cardapio.itens?.map((itens, i) => (
               <Card key={i} className="card-itens">
-                <img src={itens.imagem} alt={itens.descricao} />
-                <CardContent>
+                <img src={itens.imagem} alt={itens.descricao} className="imagem-itens" />
+                <CardContent className="card-content">
                   <Typography gutterBottom variant="h5" component="div">
                     {itens.nome}
                   </Typography>
-                  <Typography variant="body2">{itens.descricao}</Typography>
+                  <Typography variant="h6">{itens.descricao}</Typography>
+                  <Typography className="itens-valor">{formatter.format(itens.valor)}</Typography>
                 </CardContent>
               </Card>
             ))}
@@ -68,10 +77,11 @@ function DetalhesPage() {
           <span className="restaurante-title">{nome}</span>
           <span className="restaurante-distancia">{distancia} km</span>
           <span className="restaurante-nota">★{nota}</span>
-          <span className="restaurante-tempo-frete">{tempo_medio} - {valor_entrega}</span>
-          <div>{descricao}</div>
+          <span className="restaurante-tempo-frete">{tempo_medio} - {valorEntregaFormatado}</span>
           </div>
       </div>
+      <div className="restaurante-descricao">{descricao}</div>
+      <p className="restaurante-endereco">{endereco}</p>
       <ListaCardapio />
     </div>
   );
