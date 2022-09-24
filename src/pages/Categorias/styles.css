@@ -5,6 +5,7 @@
 .categorias .textNames {
 	text-align: center;
 	font-size: 14px;
+	
 }
 
 .categorias .imgCategory {
@@ -12,6 +13,7 @@
 	border-top-left-radius: 15px;
 	border-top-right-radius: 15px;
 	margin-bottom: 4px;
+	
 }
 
 .categorias .containerCategorias {
@@ -20,4 +22,6 @@
 	flex-direction: column;
 	margin: 10px 0 5px;
 	cursor: pointer;
+	
+	
 }
