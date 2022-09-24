@@ -1,5 +1,6 @@
-.full-height {
-  height: calc(100vh - 98px);
+.full-height { 
+  
+  height: calc(100vh - 98px); 
 }
 
 .full-height .MuiContainer-root {
@@ -42,11 +43,13 @@
 }
 
 .full-height .main-image {
+  
   width: 100%;
+  
+  
 }
 
 .loading {
-  display: flex;
-  justify-content: center;
+  
   margin: 30px 0 10px;
 }
