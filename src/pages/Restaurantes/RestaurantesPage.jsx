@@ -1,4 +1,5 @@
 import { Container, Typography, CircularProgress } from "@material-ui/core";
+import RestaurantesList from "../../components/RestaurantesList";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getRestaurantes } from "../../services/restaurantes.service";
@@ -7,8 +8,8 @@ import "./style.css";
 function RestaurantesPage() {
   const { id } = useParams();
 
-  const [nomeCategoria, setNomeCategoria] = useState([]);
-  const [restaurantesBaratinho, setRestaurantesBaratinho] = useState();
+  const [nomeCategoria, setNomeCategoria] = useState();
+  const [restaurantesBaratinho, setRestaurantesBaratinho] = useState([]);
   const [restaurantesNoPreco, setRestaurantesNoPreco] = useState([]);
   const [restaurantesCaro, setRestaurantesCaro] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -23,7 +24,11 @@ function RestaurantesPage() {
     })
   }, []);
 
-  return (
+  const cifrasBaratinho = <span><span>(</span>$ <span>$ $ $ $)</span></span>;
+  const cifrasNoPreco = <span><span>(</span>$ $ $<span> $ $)</span></span>;
+  const cifrasCaro = <span><span>(</span>$ $ $ $ $<span>)</span></span>;
+
+  return (  
     <Container class="restaurantes">
       <Typography variant="h5" align="center" color="primary" className="title">
         RESTAURANTES: {nomeCategoria}
@@ -33,36 +38,21 @@ function RestaurantesPage() {
           <CircularProgress color="primary" />
         </div>
       )}
-      <div className="sub-header">
-        <Typography variant="body1" color="primary">
-          Baratinho <span>(</span>$ <span>$ $ $ $)</span>
-        </Typography>
-      </div>
-      {restaurantesBaratinho?.map(restaurante => (
-        <div key={restaurante.id}>
-          {restaurante.nome}
-        </div>
-      ))}
-      <div className="sub-header">
-        <Typography variant="body1" color="primary">
-          No Preço <span>(</span>$ $ $<span> $ $)</span>
-        </Typography>
-      </div>
-      {restaurantesNoPreco?.map(restaurante => (
-        <div key={restaurante.id}>
-          {restaurante.nome}
-        </div>
-      ))}
-      <div className="sub-header">
-        <Typography variant="body1" color="primary">
-          Caro, mas vale a pena <span>(</span>$ $ $ $ $<span>)</span>
-        </Typography>
-      </div>
-      {restaurantesCaro?.map(restaurante => (
-        <div key={restaurante.id}>
-          {restaurante.nome}
-        </div>
-      ))}
+      <RestaurantesList 
+        restaurantes={restaurantesBaratinho}
+        nome={"Baratinho"}
+        cifras={cifrasBaratinho}
+      />
+      <RestaurantesList 
+        restaurantes={restaurantesNoPreco}
+        nome={"No preço"}
+        cifras={cifrasNoPreco}
+      />
+      <RestaurantesList 
+        restaurantes={restaurantesCaro}
+        nome={"Caro, mas vale a pena"}
+        cifras={cifrasCaro}
+      />
     </Container>
   )
 }
