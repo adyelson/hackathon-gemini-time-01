@@ -1,19 +1,20 @@
-p{
-    margin-top: 0px;;
+.detalhes{
+    font-family: 'Ubuntu';
 }
 .detalhes-restaurante {
 
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-around;
 	margin: 45px;
+    margin-left: 20px;
     font-size: 15px;
-    
 }
 
 .imgCategory {
 	width: 100px;
-	
+    margin: 45px;
+    margin-right: 0;	
 }
 .restaurante-title, .item-titulo{
     font-weight: bold;
@@ -36,4 +37,13 @@ p{
 .valor{
     display: flex;
     justify-content: right;
+}
+
+.container-detalhes {
+    display: flex;
+    flex-direction: row;
+}
+
+.restaurante-nota {
+    color: #ED6E27;
 }
