@@ -13,6 +13,7 @@
 
 .categorias .imgCategory {
 	width: 100%;
+	margin: 0;
 	border-top-left-radius: 15px;
 	border-top-right-radius: 15px;
 	margin: 0px;
