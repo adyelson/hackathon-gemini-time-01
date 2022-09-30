@@ -49,7 +49,7 @@ function Header() {
             </Link>
           </Menu>
           <div className="logo">
-            <span>iterisFood</span>
+            <span>iterisFood - Hackaton Gemini</span>
           </div>
 
           <IconButton color="inherit" onClick={handleClick} edge="start">
